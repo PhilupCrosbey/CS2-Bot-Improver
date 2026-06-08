@@ -391,12 +391,19 @@ public class BotRandomizerPlugin : BasePlugin
                 break;
             }
         }
-        catch { }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[BotRandomizer] ReplaceKnife failed: {ex.Message}");
+        }
     }
 
     private void ApplyGloves(CCSPlayerController player, CCSPlayerPawn pawn, ushort defIndex, int paintKit)
     {
-        if (_setAttrByName == null) return;
+        if (_setAttrByName == null)
+        {
+            Console.WriteLine("[BotRandomizer] ApplyGloves skipped: CAttributeList_SetOrAddAttributeValueByName not loaded");
+            return;
+        }
         try
         {
             var item = pawn.EconGloves;
@@ -425,7 +432,10 @@ public class BotRandomizerPlugin : BasePlugin
                     pawn.AcceptInput("SetBodygroup", value: "first_or_third_person,1");
             });
         }
-        catch { }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[BotRandomizer] ApplyGloves failed: {ex.Message}");
+        }
     }
 
     private void AssignItemId(CEconItemView item)
