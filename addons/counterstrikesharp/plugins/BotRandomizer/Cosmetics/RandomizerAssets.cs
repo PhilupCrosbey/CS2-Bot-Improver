@@ -107,7 +107,7 @@ internal static class RandomizerAssets
             ["weapon_knife_kukri"] = 526
         };
 
-    // DefIndex 0 = default faction model. Team intro must not write AgentItem for those.
+    // Economy agents use their item definition index while default models use zero
     internal static readonly AgentDefinition[] CounterTerroristAgents =
     [
         new(4757, "agents\\models\\ctm_diver\\ctm_diver_varianta.vmdl"),
@@ -147,6 +147,7 @@ internal static class RandomizerAssets
         new(4756, "agents\\models\\ctm_swat\\ctm_swat_variantk.vmdl")
     ];
 
+    // Economy agents use their item definition index while default models use zero
     internal static readonly AgentDefinition[] TerroristAgents =
     [
         new(5500, "agents\\models\\tm_balkan\\tm_balkan_variantf.vmdl"),
